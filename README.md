@@ -1,1 +1,1 @@
-# inventory-malnad-MCE
+# inventory
