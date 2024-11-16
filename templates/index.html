@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+</head>
+<body>
+    <div class="page">
+        <h1 class="title">Inventory Management System</h1>
+        <p>Welcome, {{ current_user.id }}! <a class="logout-btn" href="/logout">Logout</a></p>
+        
+        <form action="/add" method="post">
+            <input class="input-data" type="text" name="name" placeholder="Item Name" required>
+            <input class="input-data" type="number" name="quantity" placeholder="Quantity" required>
+            <input class="input-data" type="number" name="price" placeholder="Price" step="0.01" required>
+            <button class="input-btn" type="submit">Add Item</button>
+        </form>
+
+        <div class="webcam-section">
+            <h2 class="webcam-title">Scan Item with Webcam</h2>
+            <video id="video" width="400" height="300" autoplay></video>
+            <button id="start-scan" class="input-btn">Start Scanning</button>
+
+            <form id="barcode-form" action="/add" method="post" style="display:none;">
+                <input class="input-data" type="text" id="barcode-name" name="name" placeholder="Item Name" required>
+                <input class="input-data" type="number" id="barcode-quantity" name="quantity" placeholder="Quantity" required>
+                <input class="input-data" type="number" id="barcode-price" name="price" placeholder="Price" step="0.01" required>
+                <button class="input-btn" type="submit">Add Scanned Item</button>
+            </form>
+        </div>
+        
+        <table>
+            <thead>
+                <tr class="column-top">
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr class="column-bottom">
+                    <td>{{ item['name'] }}</td>
+                    <td>{{ item['quantity'] }}</td>
+                    <td>{{ item['price'] }}</td>
+                    <td>
+                        <form action="/update" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="{{ item['id'] }}">
+                            <input class="input-data" type="number" name="quantity" value="{{ item['quantity'] }}" required>
+                            <input class="input-data" type="number" name="price" value="{{ item['price'] }}" step="0.01" required>
+                            <button class="input-btn" type="submit">Update</button>
+                        </form>
+                        <a href="/delete/{{ item['id'] }}" class="delete-btn" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/static/script.js"></script>
+    <script src="/static/webcam.js"></script>
+</body>
+</html>
+

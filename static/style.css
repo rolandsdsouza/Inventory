@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    /* color: aqua; */
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #0a3b4f;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.title{
+    font-size: 40px;
+}
+.page{
+    background-color: aliceblue;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+}
+.logout.btn{
+    background-color: blanchedalmond;
+    color: brown;
+}
+.input-data{
+    padding: 10px;
+    margin: 20px;
+    width: 150px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(246, 220, 186);
+}
+.input-data:hover{
+    padding: 10px;
+    margin: 20px;
+    width: 150px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(247, 238, 227);
+}
+.input-btn{
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    margin: 20px;
+    background-color: rgb(210, 174, 127);
+}
+.input-btn:hover{
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    margin: 20px;
+    background-color: rgb(230, 199, 174);
+}
+.column-top{
+    background-color: rgb(241, 165, 64);
+}
+.column-bottom{
+    background-color: rgb(241, 204, 164);
+}
+/* Style the webcam section */
+#video {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+#barcode-form {
+    margin-top: 10px;
+}
